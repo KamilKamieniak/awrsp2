@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: temperature-management
+
+  datasource:
+    url: jdbc:h2:mem:temperaturedb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: temperature123
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.example.temperaturemanagement: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
